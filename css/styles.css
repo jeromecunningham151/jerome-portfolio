@@ -1,0 +1,156 @@
+/* Hero Section Base */
+#hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+/* Parallax background image */
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../images/GWHV 2024 Gala 10-16-2024 (3).jpg') center top/cover no-repeat;
+  background-position: center 20%;
+  opacity: 0.15; /* adjust for subtlety */
+  z-index: 0;
+  will-change: transform; /* helps with performance */
+}
+
+/* Drawn-out corner borders */
+#hero::before,
+#hero::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border: 3px solid #000;
+  opacity: 1;
+  z-index: 1;
+  transform: scale(0);
+}
+
+/* Top-left corner */
+#hero::before {
+  top: 20px;
+  left: 20px;
+  border-right: none;
+  border-bottom: none;
+  transform-origin: top left;
+  animation: drawCorner 1s ease forwards;
+}
+
+/* Bottom-right corner */
+#hero::after {
+  bottom: 20px;
+  right: 20px;
+  border-left: none;
+  border-top: none;
+  transform-origin: bottom right;
+  animation: drawCorner 1s ease forwards;
+}
+
+@keyframes drawCorner {
+  to { transform: scale(1); }
+}
+
+/* Hero content (text/buttons) */
+#hero .container {
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  animation: fadeInContent 1.4s ease forwards;
+  animation-delay: 1s; /* after corners draw */
+  text-align: center;
+}
+
+@keyframes fadeInContent {
+  to { opacity: 1; }
+}
+
+/* Typography and buttons */
+#hero h1 {
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
+  color: #000; /* main text color */
+}
+
+
+#hero p {
+  max-width: 750px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+#hero .btn {
+  transition: all 0.3s ease;
+}
+
+#hero .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  #hero h1 { font-size: 2rem; }
+  #hero p { font-size: 1rem; }
+  #hero .btn { font-size: 0.9rem; }
+}
+
+/* Footer Base */
+#footer {
+  border-top: 1px solid #dee2e6; /* subtle separation */
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+#footer a {
+  color: #6c757d;
+  transition: color 0.3s ease;
+}
+
+#footer a:hover {
+  color: #0d6efd; /* Bootstrap primary blue for hover */
+}
+
+#footer .social-links a {
+  display: inline-block;
+}
+
+/* Footer fade-in */
+.animate-footer {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease;
+}
+
+.animate-footer.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#portfolioTabs .nav-link {
+  color: #000;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+#portfolioTabs .nav-link.active {
+  background-color: #000;
+  color: #fff;
+}
+
+.img-fluid {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.img-fluid:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}

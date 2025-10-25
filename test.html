@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+body {
+  margin: 0;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: #eee;
+}
+#hero {
+  width: 80%;
+  height: 80%;
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+  animation: heroExpand 1.2s ease-out forwards;
+  transform-origin: bottom left;
+}
+@keyframes heroExpand {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+</style>
+</head>
+<body>
+  <div id="hero"></div>
+</body>
+</html>
